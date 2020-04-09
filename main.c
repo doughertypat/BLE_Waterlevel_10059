@@ -107,7 +107,7 @@
 /**< Water level timer. */
 APP_TIMER_DEF(m_water_level_timer_id);
 
-#define WATER_LEVEL_MEAS_INTERVAL     APP_TIMER_TICKS(3000)                 /**< Water level measurement interval (ticks). */
+#define WATER_LEVEL_MEAS_INTERVAL     APP_TIMER_TICKS(300000)                 /**< Water level measurement interval (ticks). */
 
 NRF_BLE_GATT_DEF(m_gatt);                                                       /**< GATT module instance. */
 NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
