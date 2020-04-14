@@ -58,8 +58,8 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="47" y="496" useTextEdit="1" useBinaryEdit="0" left="0" path="main.c" selected="1" top="479" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="5403" useTextEdit="1" useBinaryEdit="0" left="0" path="sdk_config.h" selected="0" top="5399" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="109" useTextEdit="1" useBinaryEdit="0" left="0" path="main.c" selected="1" top="67" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="70" y="6572" useTextEdit="1" useBinaryEdit="0" left="0" path="sdk_config.h" selected="0" top="6558" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="141" useTextEdit="1" useBinaryEdit="0" left="0" path="Services/led_service.c" selected="0" top="113" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="90" useTextEdit="1" useBinaryEdit="0" left="0" path="Services/led_service.h" selected="0" top="47" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="192" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/ble/common/ble_srv_common.h" selected="0" top="169" codecName="Default"/>
@@ -76,7 +76,7 @@
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="165" useTextEdit="1" useBinaryEdit="0" left="0" path="Water Level/ble_waterLevel.h" selected="0" top="177" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="91" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/ble/ble_services/ble_bas/ble_bas.h" selected="0" top="74" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="104" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/ble/ble_services/ble_bas/ble_bas.c" selected="0" top="234" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/boards/boards.c" selected="0" top="82" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/boards/boards.c" selected="0" top="31" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="74" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/modules/nrfx/hal/nrf_saadc.h" selected="0" top="53" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="12233" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/modules/nrfx/mdk/nrf52840_bitfields.h" selected="0" top="12209" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="197" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/boards/boards.h" selected="0" top="192" codecName="Default"/>
