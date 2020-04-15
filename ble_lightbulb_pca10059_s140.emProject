@@ -108,7 +108,6 @@
     <folder Name="nRF_BLE">
       <file file_name="../nRF5_SDK_Current/components/ble/peer_manager/auth_status_tracker.c" />
       <file file_name="../nRF5_SDK_Current/components/ble/common/ble_advdata.c" />
-      <file file_name="../nRF5_SDK_Current/components/ble/ble_advertising/ble_advertising.c" />
       <file file_name="../nRF5_SDK_Current/components/ble/common/ble_conn_params.c" />
       <file file_name="../nRF5_SDK_Current/components/ble/common/ble_conn_state.c" />
       <file file_name="../nRF5_SDK_Current/components/ble/common/ble_srv_common.c" />
@@ -138,6 +137,8 @@
     <folder Name="Services">
       <file file_name="Services/led_service.c" />
       <file file_name="Services/led_service.h" />
+      <file file_name="Services/ble_advertising.c" />
+      <file file_name="Services/ble_advertising.h" />
     </folder>
     <folder Name="Water Level">
       <file file_name="Water Level/water_level.c" />

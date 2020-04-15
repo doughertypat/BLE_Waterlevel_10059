@@ -49,7 +49,7 @@
 #include "ble_hci.h"
 #include "ble_srv_common.h"
 #include "ble_advdata.h"
-#include "ble_advertising.h"
+#include "Services/ble_advertising.h"
 #include "ble_conn_params.h"
 #include "nrf_sdh.h"
 #include "nrf_sdh_soc.h"
@@ -646,7 +646,7 @@ static void water_level_update(void)
     uint8_t water_lvl;              // Variable to hold voltage reading
     water_level_get(&water_lvl); // Get new water level
 
-    NRF_LOG_INFO("ADC result: %d\r\n", water_lvl);
+    NRF_LOG_INFO("ADC result: %d Last result: %d\r\n", water_lvl, m_wl.water_level_last);
 
     if(water_lvl != m_wl.water_level_last) {
         ret_code_t                  err_code;
@@ -655,7 +655,7 @@ static void water_level_update(void)
 
         memset(&advdata, 0, sizeof(advdata));
     
-        uint8_t data[]                      = {water_lvl};
+        uint8_t data[]                      = {0x00, water_lvl};
         manuf_data.company_identifier       = 0x0059;
         manuf_data.data.p_data              = data;
         manuf_data.data.size                = sizeof(data);
@@ -672,6 +672,8 @@ static void water_level_update(void)
         APP_ERROR_CHECK(err_code);
 
         advertising_start();
+
+        m_wl.water_level_last = water_lvl;
         
     }
 
@@ -710,7 +712,7 @@ int main(void)
     // Start execution.
     NRF_LOG_INFO("BLE Lightbulb example started.");
    
-    //advertising_start();
+    advertising_start();
 
     // Enter main loop.
     for (;;)
