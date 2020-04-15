@@ -107,7 +107,7 @@
 /**< Water level timer. */
 APP_TIMER_DEF(m_water_level_timer_id);
 
-#define WATER_LEVEL_MEAS_INTERVAL     APP_TIMER_TICKS(300000)                 /**< Water level measurement interval (ticks). */
+#define WATER_LEVEL_MEAS_INTERVAL     APP_TIMER_TICKS(30000)                 /**< Water level measurement interval (ticks). */
 
 NRF_BLE_GATT_DEF(m_gatt);                                                       /**< GATT module instance. */
 NRF_BLE_QWR_DEF(m_qwr);                                                         /**< Context for the Queued Write module.*/
@@ -379,6 +379,9 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
+            err_code = sd_ble_gap_disconnect(m_conn_handle, BLE_HCI_CONN_INTERVAL_UNACCEPTABLE);
+            APP_ERROR_CHECK(err_code);
+            m_conn_handle = BLE_CONN_HANDLE_INVALID;
             break;
 
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
@@ -486,7 +489,7 @@ static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 
 /**@brief Function for initializing the Advertising functionality.
  */
-static void advertising_init(void)
+static void advertising_init()
 {
     ret_code_t                  err_code;
     ble_advertising_init_t      init;
@@ -495,10 +498,11 @@ static void advertising_init(void)
     memset(&init, 0, sizeof(init));
     
     uint8_t data[]                      = {0x75, 0xB1};
+    //uint8_t data[]                      = manf_data;
     manuf_data.company_identifier       = 0x0059;
     manuf_data.data.p_data              = data;
     manuf_data.data.size                = sizeof(data);
-    init. advdata.p_manuf_specific_data = &manuf_data;
+    init.advdata.p_manuf_specific_data  = &manuf_data;
 
     init.advdata.name_type               = BLE_ADVDATA_FULL_NAME;
     init.advdata.short_name_len          = 6;
@@ -611,7 +615,7 @@ static void idle_state_handle(void)
 static void advertising_start()
 {
     ret_code_t err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
-    APP_ERROR_CHECK(err_code);
+    //APP_ERROR_CHECK(err_code);
 }
 
 /**@brief Function for handling the water level measurement timer timeout.
@@ -627,7 +631,7 @@ static void water_level_meas_timeout_handler(void * p_context)
     NRF_LOG_INFO("Water Level timeout event");
 
     // Only send the water level update if we are connected
-    if (m_conn_handle != BLE_CONN_HANDLE_INVALID)
+    if (m_conn_handle == BLE_CONN_HANDLE_INVALID)
     {
         water_level_update();
     }
@@ -644,15 +648,42 @@ static void water_level_update(void)
 
     NRF_LOG_INFO("ADC result: %d\r\n", water_lvl);
 
-    err_code = ble_wl_water_level_update(&m_wl, water_lvl, m_conn_handle);
-    if ((err_code != NRF_SUCCESS) &&
-        (err_code != NRF_ERROR_INVALID_STATE) &&
-        (err_code != NRF_ERROR_RESOURCES) &&
-        (err_code != BLE_ERROR_GATTS_SYS_ATTR_MISSING)
-       )
-    {
-        APP_ERROR_HANDLER(err_code);
+    if(water_lvl != m_wl.water_level_last) {
+        ret_code_t                  err_code;
+        ble_advdata_t               advdata;
+        ble_advdata_manuf_data_t    manuf_data;
+
+        memset(&advdata, 0, sizeof(advdata));
+    
+        uint8_t data[]                      = {water_lvl};
+        manuf_data.company_identifier       = 0x0059;
+        manuf_data.data.p_data              = data;
+        manuf_data.data.size                = sizeof(data);
+        advdata.p_manuf_specific_data       = &manuf_data;
+
+        advdata.name_type                   = BLE_ADVDATA_FULL_NAME;
+        advdata.short_name_len              = 6;
+        advdata.include_appearance          = true;
+        advdata.flags                       = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+        advdata.uuids_complete.uuid_cnt     = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
+        advdata.uuids_complete.p_uuids      = m_adv_uuids;
+
+        err_code = ble_advertising_advdata_update(&m_advertising, &advdata, NULL);
+        APP_ERROR_CHECK(err_code);
+
+        advertising_start();
+        
     }
+
+//    err_code = ble_wl_water_level_update(&m_wl, water_lvl, m_conn_handle);
+//    if ((err_code != NRF_SUCCESS) &&
+//        (err_code != NRF_ERROR_INVALID_STATE) &&
+//        (err_code != NRF_ERROR_RESOURCES) &&
+//        (err_code != BLE_ERROR_GATTS_SYS_ATTR_MISSING)
+//       )
+//    {
+//        APP_ERROR_HANDLER(err_code);
+//    }
     
 }
 
@@ -679,7 +710,7 @@ int main(void)
     // Start execution.
     NRF_LOG_INFO("BLE Lightbulb example started.");
    
-    advertising_start();
+    //advertising_start();
 
     // Enter main loop.
     for (;;)

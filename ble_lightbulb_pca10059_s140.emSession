@@ -1,7 +1,11 @@
 <!DOCTYPE CrossStudio_Session_File>
 <session>
  <Bookmarks/>
- <Breakpoints groups="Breakpoints" active_group="Breakpoints"/>
+ <Breakpoints groups="Breakpoints" active_group="Breakpoints">
+  <BreakpointListItem trigger="" line="642" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="main.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="646" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="main.c" useHWbreakpoint="false"/>
+  <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
+ </Breakpoints>
  <ExecutionProfileWindow/>
  <FrameBufferWindow>
   <FrameBufferWindow bufferHeight="-1" addressSpace="" addressText="" bufferWidth="-1"/>
@@ -24,6 +28,7 @@
   <ProjectSessionItem path="ble_lightbulb_pca10059_s140;ble_lightbulb_pca10059_s140;Application"/>
   <ProjectSessionItem path="ble_lightbulb_pca10059_s140;ble_lightbulb_pca10059_s140;Board Definition"/>
   <ProjectSessionItem path="ble_lightbulb_pca10059_s140;ble_lightbulb_pca10059_s140;Board Support"/>
+  <ProjectSessionItem path="ble_lightbulb_pca10059_s140;ble_lightbulb_pca10059_s140;nRF_Log"/>
   <ProjectSessionItem path="ble_lightbulb_pca10059_s140;ble_lightbulb_pca10059_s140;Services"/>
   <ProjectSessionItem path="ble_lightbulb_pca10059_s140;ble_lightbulb_pca10059_s140;Water Level"/>
  </Project>
@@ -58,13 +63,13 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="109" useTextEdit="1" useBinaryEdit="0" left="0" path="main.c" selected="1" top="67" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="70" y="6572" useTextEdit="1" useBinaryEdit="0" left="0" path="sdk_config.h" selected="0" top="6558" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="22" y="651" useTextEdit="1" useBinaryEdit="0" left="0" path="main.c" selected="1" top="487" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="6572" useTextEdit="1" useBinaryEdit="0" left="0" path="sdk_config.h" selected="0" top="6558" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="141" useTextEdit="1" useBinaryEdit="0" left="0" path="Services/led_service.c" selected="0" top="113" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="90" useTextEdit="1" useBinaryEdit="0" left="0" path="Services/led_service.h" selected="0" top="47" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="192" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/ble/common/ble_srv_common.h" selected="0" top="169" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="106" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/softdevice/s140/headers/ble_types.h" selected="0" top="81" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="121" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/libraries/log/src/nrf_log_frontend.c" selected="0" top="279" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="856" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/libraries/log/src/nrf_log_frontend.c" selected="0" top="812" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="50" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/ble/common/ble_srv_common.c" selected="0" top="23" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="1255" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/libraries/util/app_util.h" selected="0" top="1252" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="86" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/softdevice/common/nrf_sdh_ble.h" selected="0" top="70" codecName="Default"/>
@@ -72,7 +77,7 @@
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="249" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/softdevice/s140/headers/ble_gatts.h" selected="0" top="236" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="73" useTextEdit="1" useBinaryEdit="0" left="0" path="Water Level/water_level.c" selected="0" top="60" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="54" useTextEdit="1" useBinaryEdit="0" left="0" path="Water Level/water_level.h" selected="0" top="36" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="125" useTextEdit="1" useBinaryEdit="0" left="0" path="Water Level/ble_waterLevel.c" selected="0" top="117" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="125" useTextEdit="1" useBinaryEdit="0" left="0" path="Water Level/ble_waterLevel.c" selected="0" top="234" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="165" useTextEdit="1" useBinaryEdit="0" left="0" path="Water Level/ble_waterLevel.h" selected="0" top="177" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="91" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/ble/ble_services/ble_bas/ble_bas.h" selected="0" top="74" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="104" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/ble/ble_services/ble_bas/ble_bas.c" selected="0" top="234" codecName="Default"/>
@@ -82,6 +87,7 @@
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="197" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/boards/boards.h" selected="0" top="192" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="326" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/libraries/bsp/bsp.c" selected="0" top="313" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="55" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/libraries/util/sdk_common.h" selected="0" top="27" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="428" useTextEdit="1" useBinaryEdit="0" left="0" path="../nRF5_SDK_Current/components/toolchain/cmsis/include/cmsis_gcc.h" selected="0" top="406" codecName=""/>
  </Files>
- <ARMCrossStudioWindow activeProject="ble_lightbulb_pca10059_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/BLE Projects/ble_lightbulb" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <ARMCrossStudioWindow activeProject="ble_lightbulb_pca10059_s140" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/BLE Projects/ble_lightbulb" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>
